@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delfinarijum</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<header class="zaglavlje">
+    <a href="./index.html"><img id="logo" src="./logo.jpg" alt="Delfinarijum logo"></a>
+    <h1>Delfinarijum</h1>
+</header>
+
+<nav class="meni">
+    <ul>
+        <li class="aktivna"><a href="./index.html">Početna</a></li>
+        <li><a href="./index.html#naslov1">Ko smo mi?</a></li>
+        <li><a href="./index.html#naslov2">Gde se nalazimo?</a></li>
+        <li><a href="./kalendar.html">Kalendar aktivnosti</a></li>
+        <li><a href="./galerija.html">Galerija</a></li>
+        <li><a href="./index.html#zanimljivosti">Zanimljivosti</a></li>
+        <li><a href="./index.html#kontakt">Kontakt</a></li>
+        <li><a href="./formular.html">Kupi kartu</a></li>
+        <li><a href="./animacija.html">Animacija</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <section class="najnovije-vesti">
+        <div class="vesti-tekst">
+            <h2>Najnovije vesti</h2>
+
+            <div class="vest">
+                <h3>U Peruu pronađen fosil rečnog delfina, živeo u Amazonu pre 16 miliona godina!</h3>
+                <p><a href="https://n1info.rs/magazin/scitech/u-peruu-pronadjen-fosil-recnog-delfina-star-16-miliona-godina/">Pročitaj više</a></p>
+            </div>
+
+            <div class="vest">
+                <h3>Iskoristite rođendanski popust za kupovinu karata!</h3>
+                <p><a href="./formular.html"><img src="./icons8-shopping-bag-100.png" alt="Šoping korpa"></a></p>
+            </div>
+
+            <div class="vest">
+                <h3>Rođendanska žurka</h3>
+                <p>Juče smo našem najmlađem članu parka proslavili prvi rođendan!<br>
+                    <a href="./galerija.html">Vidi slike</a></p>
+            </div>
+        </div>
+        <img class="vesti-gif" src="./gif2.webp" alt="Delfin koji skače">
+    </section>
+
+    <hr>
+
+    <h2 class="naslov" id="naslov1">Ko smo mi?</h2>
+    <div class="uzi">
+        <p><strong>Delfinarijum</strong> je jedini park u regionu koji nudi zabavan i rekreativan sadržaj koji uključuje delfine. Da, dobro ste čuli, delfine. Ovaj park predstavlja spoj zabave, druženja, igre, ali i sticanja novih znanja o delfinima.</p>
+
+        <p>Akva park ima <strong>7 bazena</strong>, bazen sa talasima, kao i bazene različitih dubina prilagođene deci i odraslima. Možete igrati vodeni fudbal i zabavljati se sa prijateljima ili drugim posetiocima, probati bandži džamping sa visine od <strong>70 metara</strong> ili rafting sa <strong>300 metara</strong> visinske razlike i veštačkim talasima.</p>
+
+        <p>Tu je i terasa za uživanje u suncu i pogledu na more i obalu Rovinja, gde se možete odmoriti od zabave. Park prima do <strong>2000 posetilaca</strong> dnevno i obuhvata površinu od <strong>6500 m<sup>2</sup></strong>. Ukoliko volite delfine, zabavu, igru i druženje, Delfinarijum je pravo mesto za vas.</p>
+    </div>
+
+    <div class="centar">
+        <div class="slajder" id="slajder">
+            <img class="slajd aktivan" src="./delfinPark.jpg" alt="Naš park">
+            <img class="slajd" src="./slika1.jpg" alt="Delfinarijum, fotografija 2">
+            <img class="slajd" src="./slika2.jpg" alt="Delfinarijum, fotografija 3">
+            <img class="slajd" src="./slika3.jpg" alt="Delfinarijum, fotografija 4">
+            <img class="slajd" src="./slika4.jpg" alt="Delfinarijum, fotografija 5">
+
+            <button class="strelica levo" id="prethodna" type="button" aria-label="Prethodna slika">&#10094;</button>
+            <button class="strelica desno" id="sledeca" type="button" aria-label="Sledeća slika">&#10095;</button>
+
+            <div class="tacke">
+                <button class="tacka aktivan" type="button" aria-label="Slika 1"></button>
+                <button class="tacka" type="button" aria-label="Slika 2"></button>
+                <button class="tacka" type="button" aria-label="Slika 3"></button>
+                <button class="tacka" type="button" aria-label="Slika 4"></button>
+                <button class="tacka" type="button" aria-label="Slika 5"></button>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2 class="naslov" id="naslov2">Gde se nalazimo?</h2>
+    <p class="uzi">Nalazimo se 56 km istočno od Rovinja, u uvali Jadranskog mora. Klikom na mapu otvarate detaljniju lokaciju.</p>
+    <div class="centar lokacija">
+        <a href="https://www.google.com/maps/search/ulica+brace+bajkovic++rovinj/@45.0751413,13.5832389,12z/data=!3m1!4b1?hl=sr&entry=ttu&g_ep=EgoyMDI1MDUyNi4wIKXMDSoASAFQAw%3D%3D">
+            <img class="slika-okvir mapa" src="./mapa.png" alt="Mapa, klik za lokaciju">
+        </a>
+        <img class="kursor" src="./mis.png" alt="">
+    </div>
+
+    <hr>
+
+    <section class="zanimljivo">
+        <h2 class="naslov" id="zanimljivosti">Zanimljivosti</h2>
+        <dl>
+            <dt>Delfini su veoma inteligentni</dt>
+            <dd>Imaju veliki mozak u odnosu na veličinu tela, pokazuju emocije i koriste složen sistem komunikacije.</dd>
+
+            <dt>Imaju „sonar", eholokaciju</dt>
+            <dd>Delfini koriste eholokaciju za navigaciju i lov.</dd>
+
+            <dt>Prepoznaju se u ogledalu</dt>
+            <dd>Delfini su jedne od retkih životinja koje prepoznaju sebe u ogledalu, što je pokazatelj samoprepoznavanja i inteligencije.</dd>
+
+            <dt>Ne spavaju kao mi</dt>
+            <dd>Delfini ne spavaju potpuno. Pola mozga im spava, dok druga polovina ostaje budna da bi disali i pazili na opasnosti.</dd>
+
+            <dt>Imaju različite „dijalekte"</dt>
+            <dd>Delfini iz različitih područja zvuče drugačije, poput ljudskih jezika i akcenata!</dd>
+
+            <dt>Rađaju se sa zubima, ali ih ne koriste za žvakanje</dt>
+            <dd>Delfini imaju 80 do 100 zuba, ali njima samo hvataju plen, a gutaju ga celog.</dd>
+
+            <dt>Neke vrste delfina žive u rekama</dt>
+            <dd>Nisu svi delfini morski. Rečni delfin iz Amazona (boto) živi u slatkoj vodi!</dd>
+        </dl>
+        <figure>
+            <img class="slika-okvir" width="500" src="./rozeKonacna.avif" alt="Rečni delfin">
+            <figcaption>Amazonski rečni delfin ružičaste boje</figcaption>
+        </figure>
+    </section>
+
+    <hr>
+
+    <section class="kontakt">
+        <h2 class="naslov" id="kontakt">Kontakt podaci</h2>
+        <ul>
+            <li class="tel">Broj telefona: <span>+381/62-768-18-45</span></li>
+            <li class="adr">Adresa: <span>Ul. Braće Brajković 1456</span></li>
+            <li class="mejl">Mail adresa: <span>delfinarijum@gmail.com</span></li>
+        </ul>
+    </section>
+
+</main>
+
+<footer class="podnozje">
+    Delfinarijum je izmišljen park. Studentski projekat, Ivana Đorđević, 2025.
+</footer>
+
+<script>
+    // slajder
+    let slajdovi = document.querySelectorAll(".slajd");
+    let tacke = document.querySelectorAll(".tacka");
+    let trenutni = 0;
+
+    // prikazuje sliku pod rednim brojem n (0 je prva)
+    function prikazi(n) {
+        slajdovi[trenutni].classList.remove("aktivan");
+        tacke[trenutni].classList.remove("aktivan");
+
+        // posle poslednje ide prva, pre prve ide poslednja
+        trenutni = (n + slajdovi.length) % slajdovi.length;
+
+        slajdovi[trenutni].classList.add("aktivan");
+        tacke[trenutni].classList.add("aktivan");
+    }
+
+    // sama menja sliku na svake 4 sekunde
+    let tajmer = setInterval(function () {
+        prikazi(trenutni + 1);
+    }, 4000);
+
+    // posle rucnog klika odbrojavanje krece ispocetka
+    function rucno(n) {
+        clearInterval(tajmer);
+        prikazi(n);
+        tajmer = setInterval(function () {
+            prikazi(trenutni + 1);
+        }, 4000);
+    }
+
+    document.getElementById("sledeca").addEventListener("click", function () {
+        rucno(trenutni + 1);
+    });
+    document.getElementById("prethodna").addEventListener("click", function () {
+        rucno(trenutni - 1);
+    });
+    for (let i = 0; i < tacke.length; i++) {
+        tacke[i].addEventListener("click", function () {
+            rucno(i);
+        });
+    }
+</script>
+</body>
+</html>

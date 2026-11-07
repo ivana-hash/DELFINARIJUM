@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kupovina karata | Delfinarijum</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<header class="zaglavlje mala">
+    <a href="./index.html"><img id="logo" src="./logo.jpg" alt="Delfinarijum logo"></a>
+    <h1>Delfinarijum</h1>
+</header>
+
+<nav class="meni">
+    <ul>
+        <li><a href="./index.html">Početna</a></li>
+        <li><a href="./index.html#naslov1">Ko smo mi?</a></li>
+        <li><a href="./index.html#naslov2">Gde se nalazimo?</a></li>
+        <li><a href="./kalendar.html">Kalendar aktivnosti</a></li>
+        <li><a href="./galerija.html">Galerija</a></li>
+        <li><a href="./index.html#zanimljivosti">Zanimljivosti</a></li>
+        <li><a href="./index.html#kontakt">Kontakt</a></li>
+        <li class="aktivna"><a href="./formular.html">Kupi kartu</a></li>
+        <li><a href="./animacija.html">Animacija</a></li>
+    </ul>
+</nav>
+
+<main class="sadrzaj">
+    <div class="forma">
+        <h2>Kupovina karata</h2>
+
+        <form id="kupovina">
+            <div class="polje">
+                <label for="imePrez">Ime i prezime</label>
+                <input type="text" id="imePrez" name="imePrezime" required placeholder="Unesite vaše ime i prezime">
+            </div>
+
+            <div class="polje">
+                <label for="email">Email adresa</label>
+                <input type="email" id="email" name="email" required placeholder="Unesite email adresu">
+            </div>
+
+            <div class="polje">
+                <span class="oznaka">Pol</span>
+                <div class="gender-group">
+                    <label>
+                        <input type="radio" name="gender" value="male" required>
+                        Muško
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="female" required>
+                        Žensko
+                    </label>
+                </div>
+            </div>
+
+            <div class="polje">
+                <label for="tickets">Broj karata</label>
+                <select id="tickets" name="tickets" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+
+            <div class="polje">
+                <label for="godine">Koliko godina imate?</label>
+                <select id="godine" name="godine" required>
+                    <option value="1">manje od 12 godina</option>
+                    <option value="2">12-18</option>
+                    <option value="3">više od 18 godina</option>
+                </select>
+            </div>
+
+            <div class="polje">
+                <label for="komentar">Napomena</label>
+                <textarea id="komentar" name="comments" rows="4" placeholder="Unesite dodatne informacije (opciono)"></textarea>
+            </div>
+
+            <div class="dugmad">
+                <button class="dugme kupi" type="submit">Kupi karte</button>
+                <a class="dugme odustani" href="./index.html">Odustani</a>
+            </div>
+        </form>
+
+        <!-- prikazuje se umesto forme kad kupovina uspe -->
+        <div id="poruka" hidden>
+            <p id="poruka-tekst"></p>
+            <a class="dugme kupi" href="./index.html">Nazad na početnu</a>
+        </div>
+    </div>
+</main>
+
+<footer class="podnozje">
+    Delfinarijum je izmišljen park. Studentski projekat, Ivana Đorđević, 2025.
+</footer>
+
+<script>
+    let forma = document.getElementById("kupovina");
+    let poruka = document.getElementById("poruka");
+    let porukaTekst = document.getElementById("poruka-tekst");
+
+    forma.addEventListener("submit", function (e) {
+        // ne salji formu i ne osvezavaj stranicu
+        e.preventDefault();
+
+        let ime = document.getElementById("imePrez").value.trim();
+        let mejl = document.getElementById("email").value.trim();
+        let brojKarata = document.getElementById("tickets").value;
+
+        // ime sastavljeno samo od razmaka ne vazi
+        if (ime == "") {
+            document.getElementById("imePrez").value = "";
+            document.getElementById("imePrez").focus();
+            return;
+        }
+
+        // 1 kartu, 2-4 karte, 5 karata
+        let rec = "karte";
+        if (brojKarata == "1") {
+            rec = "kartu";
+        } else if (brojKarata == "5") {
+            rec = "karata";
+        }
+
+        porukaTekst.textContent =
+            "Hvala, " + ime + "! Uspešno ste kupili " + brojKarata + " " + rec +
+            ". Potvrda stiže na adresu " + mejl + ".";
+
+        forma.hidden = true;
+        poruka.hidden = false;
+    });
+</script>
+</body>
+</html>
