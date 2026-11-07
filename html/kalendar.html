@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalendar aktivnosti | Delfinarijum</title>
+    <style>
+        @font-face {
+            font-family: mojfont;
+            src: url(./ShadowsIntoLight-Regular.ttf);
+        }
+
+        body {
+            background-color: beige;
+            font-family: Verdana, sans-serif;
+            color: rgb(40, 40, 40);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .nazad {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 8px 16px;
+            background-color: rgba(153, 153, 17, 0.442);
+            border-radius: 8px;
+            color: rgb(13, 13, 156);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nazad:hover {
+            background-color: #98d1e1;
+        }
+
+        /* na uskim ekranima tabela se skroluje levo-desno */
+        .okvir {
+            max-width: 1300px;
+            margin: 0 auto;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            min-width: 950px;
+            border-collapse: collapse;
+            table-layout: fixed;
+            background-color: white;
+        }
+
+        table, td, th {
+            border: 3px solid rgb(130, 206, 238);
+        }
+
+        /* naslov preko slike */
+        #naslov {
+            padding: 0;
+        }
+
+        .baner {
+            position: relative;
+            height: 420px;
+        }
+
+        .slika-u-celiji {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+object-position: center 25%;
+        }
+
+        .baner h1 {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.45);
+            color: orange;
+            font-family: mojfont, cursive;
+            font-size: 48px;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+
+        /* dani u nedelji */
+        th {
+            padding: 12px 5px;
+            background-color: #98d1e1;
+            color: rgb(13, 13, 156);
+            font-size: 17px;
+        }
+
+        .aktivnosti td {
+            height: 220px;
+            padding: 12px 10px;
+            vertical-align: top;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .aktivnosti td:hover {
+            background-color: rgb(235, 247, 251);
+        }
+
+        .aktivnosti ul {
+            margin: 0;
+            padding-left: 36px;
+            list-style-image: url(./icons8-dolphin-30.png);
+        }
+
+        .aktivnosti li {
+            margin-bottom: 12px;
+        }
+
+        /* vreme uvek u svom redu, ispod naziva aktivnosti */
+        .vreme {
+            display: block;
+            width: fit-content;
+            margin-top: 4px;
+            padding: 1px 8px;
+            border-radius: 10px;
+            background-color: orange;
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .slobodno {
+            color: rgb(130, 130, 130);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="okvir">
+        <a class="nazad" href="./index.html">&larr; Nazad na početnu</a>
+
+        <table>
+            <tr>
+                <td id="naslov" colspan="7">
+                    <div class="baner">
+                        <img class="slika-u-celiji" src="aktivnosti.jpg" alt="Delfini skaču iz vode">
+                        <h1>KALENDAR AKTIVNOSTI</h1>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>Ponedeljak</th>
+                <th>Utorak</th>
+                <th>Sreda</th>
+                <th>Četvrtak</th>
+                <th>Petak</th>
+                <th>Subota</th>
+                <th>Nedelja</th>
+            </tr>
+            <tr class="aktivnosti">
+                <td>
+                    <ul>
+                        <li>Zagrevanje</li>
+                        <li>Trening</li>
+                        <li>Vežba</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Generalna proba <span class="vreme">12h</span></li>
+                        <li>Nastup <span class="vreme">15h</span></li>
+                        <li>Pauza</li>
+                        <li>Nastup broj 2 <span class="vreme">20h</span></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Generalna proba <span class="vreme">10h</span></li>
+                        <li>Nastup <span class="vreme">20h</span></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Plivanje sa delfinima <span class="vreme">10h-11h</span></li>
+                        <li>Nahrani delfine <span class="vreme">20h</span></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Naša škola sporta <span class="vreme">8h-14h</span></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Specijalni program <span class="vreme">21h</span></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li class="slobodno">Bez aktivnosti</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

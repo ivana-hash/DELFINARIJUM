@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delfinarijum</title>
+    <!-- <link rel="stylesheet" href="./stil.css" type="text/css"> -->
+
+<style>
+   @font-face {
+    font-family: mojfont;
+    src: url(./ShadowsIntoLight-Regular.ttf);
+}   
+
+  span{
+    color: rgb(0, 8, 255);
+  }
+    body{
+        background-color: beige ;
+    }
+    dt{
+        font-style: italic;
+        color: rgb(151, 101, 9);
+        font-weight: bold;
+    }
+   
+    header{
+
+    background-image: url(./konacna.jpg);
+    background-size: cover;        /* popuni ceo heder */
+    background-position: center;   /* centriraj sliku */
+    background-repeat: no-repeat;  /* ne ponavljaj sliku */
+    height: 300px;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 20px 40px;
+
+    }
+ 
+    nav{
+    background-color: rgba(153, 153, 17, 0.442);
+    }
+h1{
+    color: orange;
+    font-family: mojfont;
+    text-align: center;
+}
+.najnovije-vesti {
+    background-color: #98d1e1;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;          /* vesti levo, gif desno */
+    align-items: center;
+    gap: 30px;
+}
+.vesti-tekst {
+    flex: 1;
+}
+.vesti-gif {
+    width: 380px;
+    max-width: 40%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+#logo{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;      /* slika popunjava krug bez razvlacenja */
+    border-radius: 50%;
+    border: 6px solid orange;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+.zanimljivo{
+   text-align: center;
+   align-items: normal;
+   position: relative;
+}
+.slike{
+   
+   display: flex;
+  justify-content: center; 
+  align-items: center;  
+  margin: 0; 
+
+}
+.img{
+    max-width: 100%;
+    height: auto;           /* cuva prirodan odnos sirine i visine */
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.o-nama {
+    width: 70%;
+    margin: 0 auto 20px auto;
+    font-family: Verdana, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    text-align: justify;
+    color: rgb(40, 40, 40);
+}
+.o-nama p {
+    margin-bottom: 14px;
+}
+.o-nama strong {
+    color: rgb(151, 101, 9);
+}
+
+/* ---------- slajder u delu "Ko smo mi?" ---------- */
+.slajder {
+    position: relative;
+    width: 440px;
+    max-width: 100%;
+    aspect-ratio: 3 / 2;        /* okvir je uvek istog oblika, pa stranica ne skace */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    background-color: #98d1e1;
+}
+.slajd {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* slika popunjava okvir bez razvlacenja */
+    opacity: 0;                 /* sve slike su sakrivene... */
+    transition: opacity 0.8s;
+}
+.slajd.aktivan {
+    opacity: 1;                 /* ...osim one koja je na redu */
+}
+.strelica {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.45);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+.strelica:hover {
+    background-color: orange;
+}
+.strelica.levo  { left: 12px; }
+.strelica.desno { right: 12px; }
+.tacke {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+.tacka {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+}
+.tacka.aktivan {
+    background-color: orange;
+}
+
+/* naslov u zaglavlju: veci i citljiv preko slike */
+header h1 {
+    margin: 0;
+    font-size: 64px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* na telefonu: manji logo i naslov, da stanu u zaglavlje */
+@media (max-width: 600px) {
+    header {
+        gap: 15px;
+        padding: 15px;
+    }
+    #logo {
+        width: 90px;
+        height: 90px;
+    }
+    header h1 {
+        font-size: 36px;
+    }
+    /* na telefonu gif ide ispod vesti */
+    .najnovije-vesti {
+        flex-direction: column;
+    }
+    .vesti-gif {
+        max-width: 100%;
+    }
+}
+</style>
+
+</head>
+<body>
+    <header>
+    
+        <img id="logo"
+        src="./logo.jpg" alt="delfin">
+        <div>
+            <h1 style="text-align: left; font-weight: bold; color: rgb(238, 161, 19); font-family: mojfont;">Delfinarijum</h1>
+        </div>
+
+    </header>
+    
+    <main>
+<nav>
+
+    <ul style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 40px; margin: 0; padding: 10px 40px; list-style-image: url(./icons8-dolphin-30.png) ;">
+       
+        <li><a href="#naslov1">Ko smo mi?</a></li>
+        <li><a href="#naslov2" >Gde se nalazimo?</a></li>
+        <li><a href="./kalendar.html">Kalendar aktivnosti</a></li>
+        <li><a href="#zanimljivosti">Zanimljivosti</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="./formular.html">Kupi kartu</a></li>
+        <li><a href="./animacija.html">Animacija</a></li>
+     
+    </ul>
+</nav>
+
+
+
+    </main>
+    
+   <div class="najnovije-vesti" >
+   <div class="vesti-tekst"><h2 style="text-shadow:  10px 20px 2px rgb(38, 11, 213); color: rgb(13, 13, 156);">Najnovije vesti</h2>
+
+    <div class="vest">
+      <h3> U Peruu pronađen fosil rečnog delfina- živeo u Amazonu pre 16 miliona godina!</h3>
+        <p><a href="https://n1info.rs/magazin/scitech/u-peruu-pronadjen-fosil-recnog-delfina-star-16-miliona-godina/">Pročitaj više</a></p>
+    
+    </div>
+
+    <div class="vest">
+        <h3>Iskoristite rođendanski popust za kupovinu karata! </h3>
+        <p><a href="./formular.html"><img src="./icons8-shopping-bag-100.png" alt="Šoping korpa"></a></p>
+       
+    </div>
+    <div class="vest">
+        <h3>Rođendanska žurka</h3>
+        <p>Juče smo našem najmlađem članu parka proslavili prvi rođendan!<br>
+            <a href="./galerija.html">Vidi slike</a></p>
+    </div>
+   </div>
+   <img class="vesti-gif" src="./gif2.webp" alt="Delfin koji skače">
+</div>
+
+
+
+<hr style="color: blue; margin: 10px 10px;">
+
+
+    <h1 id="naslov1">Ko smo mi?</h1>
+    <div class="o-nama">
+    <p><strong>Delfinarijum</strong> je jedini park u regionu koji nudi zabavan i rekreativan sadržaj koji uključuje delfine. Da, dobro ste čuli, delfine. Ovaj park predstavlja spoj zabave, druženja, igre, ali i sticanja novih znanja o delfinima.</p>
+
+    <p>Akva park ima <strong>7 bazena</strong>, bazen sa talasima, kao i bazene različitih dubina prilagođene deci i odraslima. Možete igrati vodeni fudbal i zabavljati se sa prijateljima ili drugim posetiocima, probati bandži džamping sa visine od <strong>70 metara</strong> ili rafting sa <strong>300 metara</strong> visinske razlike i veštačkim talasima.</p>
+
+    <p>Tu je i terasa za uživanje u suncu i pogledu na more i obalu Rovinja, gde se možete odmoriti od zabave. Park prima do <strong>2000 posetilaca</strong> dnevno i obuhvata površinu od <strong>6500 m<sup>2</sup></strong>. Ukoliko volite delfine, zabavu, igru i druženje, Delfinarijum je pravo mesto za vas.</p>
+</div>   <div class="slike">
+    <div class="slajder" id="slajder">
+        <img class="slajd aktivan" src="./delfinPark.jpg" alt="Naš park">
+        <img class="slajd" src="./slika1.jpg" alt="Delfinarijum, fotografija 2">
+        <img class="slajd" src="./slika2.jpg" alt="Delfinarijum, fotografija 3">
+        <img class="slajd" src="./slika3.jpg" alt="Delfinarijum, fotografija 4">
+        <img class="slajd" src="./slika4.jpg" alt="Delfinarijum, fotografija 5">
+
+        <button class="strelica levo" id="prethodna" type="button" aria-label="Prethodna slika">&#10094;</button>
+        <button class="strelica desno" id="sledeca" type="button" aria-label="Sledeća slika">&#10095;</button>
+
+        <div class="tacke">
+            <button class="tacka aktivan" type="button" aria-label="Slika 1"></button>
+            <button class="tacka" type="button" aria-label="Slika 2"></button>
+            <button class="tacka" type="button" aria-label="Slika 3"></button>
+            <button class="tacka" type="button" aria-label="Slika 4"></button>
+            <button class="tacka" type="button" aria-label="Slika 5"></button>
+        </div>
+    </div>
+    </div>
+    <hr style="color: blue; margin: 10px 10px;">
+    <h1 id="naslov2">Gde se nalazimo?</h1>
+    <p>Nalazimo se 56km istočno od Rovinja, u uvali Jadranskog mora. Ovde možete videti detaljniju lokaciju.<br></p>
+    <div class="slike">
+ <a href="https://www.google.com/maps/search/ulica+brace+bajkovic++rovinj/@45.0751413,13.5832389,12z/data=!3m1!4b1?hl=sr&entry=ttu&g_ep=EgoyMDI1MDUyNi4wIKXMDSoASAFQAw%3D%3D"><img class="img" style=" box-shadow: 20px 20px 20px rgb(72, 164, 221);"  width="400" height="300"
+ src="./mapa.png" alt="mapa"></a><img width="3%" style="position: absolute;" src="./mis.png" alt="Klik za lokaciju"></div>
+ <br><br>
+<hr style="color: blue; margin: 10px 10px;">
+    <br>
+    
+<div class="zanimljivo">
+
+  <h1 id="zanimljivosti">Zanimljivosti</h1>
+<dl>
+    <dt>Delfini su veoma inteligentni</dt>
+    <dd>Imaju veliki mozak u odnosu na veličinu tela, pokazuju emocije i koriste složen sistem komunikacije </dd>
+    
+    <dt>Imaju “sonar” – eholokaciju</dt>
+    <dd>Delfini koriste eholokaciju za navigaciju i lov.</dd>
+
+    <dt>Prepoznaju se u ogledalu</dt>
+    <dd>Delfini su jedni od retkih životinja koje prepoznaju sebe u ogledalu – pokazatelj samoprepoznavanja i inteligencije.</dd>
+
+    <dt>Ne spavaju kao mi</dt>
+    <dd>Delfini ne spavaju potpuno — pola mozga im spava, dok druga polovina ostaje budna da bi disali i pazili na opasnosti.</dd>
+
+    <dt>Imaju različite “dijalekte”</dt>
+    <dd>Delfini iz različitih područja zvuče drugačije – poput ljudskih jezika i akcenata!</dd>
+
+    <dt> Rađaju se sa zubima, ali ih ne koriste za žvakanje</dt>
+    <dd>Delfini imaju 80–100 zuba, ali njima samo hvataju plen, a gutaju ga celog.</dd>
+
+    <dt> Neke vrste delfina žive u rekama</dt>
+    <dd>Nisu svi delfini morski — npr. rečni delfin iz Amazona (boto) živi u slatkoj vodi!
+        <br><br>
+<figure>
+<img class="img" width="500px" height="300px" src="./rozeKonacna.avif" alt="Rečni delfin">
+<figcaption><span style="font-style: italic;"> </span>Amazonski rečni delfin ružičaste boje</figcaption>
+
+</figure>
+</dd>
+</dl>
+</div>
+
+
+<hr style="color: blue; margin: 10px 10px;">
+
+<footer style="border: dotted; border-color: rgb(255, 187, 0); border-radius: 10%; border-width: 5px;">
+    <h1 id="kontakt">Kontakt podaci</h1>
+    <ul>
+        <li style="list-style-image: url(./icons8-call-24.png);">Broj telefona:<span style="color: rgb(156, 35, 128);"> +381/62-768-18-45</span></li>
+        <li style="list-style-image: url(./icons8-location-24.png);">Adresa: <span style="color: rgb(156, 35, 128);">Ul. Braće Brajković 1456</span></li>
+        <li style="list-style-image: url(./icons8-mail-24.png);">Mail adresa: <span style="color: rgb(156, 35, 128);">delfinarijum@gmail.com</span></li>
+        
+    </ul>
+</footer>
+
+<script>
+    // slajder
+    let slajdovi = document.querySelectorAll(".slajd");
+    let tacke = document.querySelectorAll(".tacka");
+    let trenutni = 0;
+
+    // prikazuje sliku pod rednim brojem n (0 je prva)
+    function prikazi(n) {
+        slajdovi[trenutni].classList.remove("aktivan");
+        tacke[trenutni].classList.remove("aktivan");
+
+        // posle poslednje ide prva, pre prve ide poslednja
+        trenutni = (n + slajdovi.length) % slajdovi.length;
+
+        slajdovi[trenutni].classList.add("aktivan");
+        tacke[trenutni].classList.add("aktivan");
+    }
+
+    // sama menja sliku na svake 4 sekunde
+    let tajmer = setInterval(function () {
+        prikazi(trenutni + 1);
+    }, 4000);
+
+    // posle rucnog klika odbrojavanje krece ispocetka
+    function rucno(n) {
+        clearInterval(tajmer);
+        prikazi(n);
+        tajmer = setInterval(function () {
+            prikazi(trenutni + 1);
+        }, 4000);
+    }
+
+    document.getElementById("sledeca").addEventListener("click", function () {
+        rucno(trenutni + 1);
+    });
+    document.getElementById("prethodna").addEventListener("click", function () {
+        rucno(trenutni - 1);
+    });
+    for (let i = 0; i < tacke.length; i++) {
+        tacke[i].addEventListener("click", function () {
+            rucno(i);
+        });
+    }
+</script>
+</body>
+</html>
